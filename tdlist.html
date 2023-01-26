@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <title>To do list</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <h1>Adding & removing list</h1>
+  <form>
+    <input type="text" name="text" id="txt" class="exampleone" required>
+       <button type="submit" class="btn-list"><i class="fa fa-plus" aria-hidden="true"> </i></button>
+
+    </form>
+<div class="container">
+  <ul>
+    <!--<li>Singularity<span>x</span></li>
+    <li>Singularity<span>x</span></li>
+    <li>Singularity<span>x</span></li>
+    <li>Singularity<span>x</span></li>-->
+  </ul>
+</div>
+<script>
+  const inputText = document.querySelector('#txt');
+  const myButton = document.querySelector('.btn-list');
+  const list = document.querySelector('.container ul');
+  myButton.addEventListener('click', (e)=>{
+    if(inputText.value != ""){
+      e.preventDefault();
+      // create li
+      const myLi = document.createElement('li'); 
+      myLi.innerHTML = inputText.value;
+      list.appendChild(myLi);
+      // create span
+      const mySpan = document.createElement('span');
+      mySpan.innerHTML = 'x';
+      myLi.appendChild(mySpan);
+    }
+    const close = document.querySelectorAll('span');
+    for(let i=0; i<close.length; i++){
+        close[i].addEventListener('click', ()=>{
+          close[i].parentElement.style.opacity = 0;
+          setTimeout(()=>{
+              close[i].parentElement.style.display = "none";
+          }, 500);
+          
+        })
+      }
+      inputText.value = "";
+  });
+</script>
+</body>
+</html> 

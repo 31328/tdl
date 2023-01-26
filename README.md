@@ -1,2 +1,3 @@
-# tdl
-To-do-list
+# To-do-list
+
+A very basic to do list implementation.
